@@ -68,13 +68,13 @@ usage() { local RC=${1:-0}
     echo "Usage: ${0##*/} [-opt] [command]
 Options (fields in '[]' are optional, '<>' are required):
     -h          This help
-    -p          Set permissions for shares.
+    -p          Set file and directory permissions for shared folders
     -s \"<name;/path>[;rolist;rwlist;guest;users;time-machine]\" Configure a share
                 required arg: \"<name>;</path>\"
                 <name> is how it's called for clients
                 <path> path to share
-                [rolist] default:none
-                [rwlist] default:none
+                [rolist] default: 'none' or list of users
+                [rwlist] default: 'none' or list of users
                 [guest] allowed default:'yes' or 'no'
                 [users] allowed default:'all' or list of allowed users
                 [time-machine] allowed default:'no' or 'yes'
