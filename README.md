@@ -59,12 +59,12 @@ For instance, to set up three shares with read/write access for the user 'user1'
 
 ```bash
   docker run -it -p 548:548 \
-    -v "/home/user/documents:/shares/documents" \
-    -v "/home/user/music:/shares/music" \
-    -v "/home/user/movies:/shares/movies" \
+    -v "/media/documents:/shares/documents" \
+    -v "/media/music:/shares/music" \
+    -v "/media/movies:/shares/movies" \
     cilix/netatalk \
-    -u "user1;badpass1" \
-    -u "user2;badpass2" \
+    -u "user1;password1" \
+    -u "user2;password2" \
     -s "Documents;/shares/documents;nobody;user1,user2;yes" \
     -s "Music;/shares/music;nobody;user1,user2;yes" \
     -s "Movies;/movies/documents;nobody;user1,user2;yes"
