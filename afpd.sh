@@ -73,8 +73,8 @@ Options (fields in '[]' are optional, '<>' are required):
                 required arg: \"<name>;</path>\"
                 <name> is how it's called for clients
                 <path> path to share
-                [rolist] default: 'none' or list of users
-                [rwlist] default: 'none' or list of users
+                [rolist] read only users default: 'none' or list of users
+                [rwlist] read/write users default: 'none' or list of users
                 [guest] allowed default:'yes' or 'no'
                 [users] allowed default:'all' or list of allowed users
                 [time-machine] allowed default:'no' or 'yes'

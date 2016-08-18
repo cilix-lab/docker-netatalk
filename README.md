@@ -14,25 +14,26 @@ You can start with:
   Usage: afpd.sh [-opt] [command]
   Options (fields in '[]' are optional, '<>' are required):
       -h          This help
-      -p          Set permissions for shares.
-      -s "<name;/path>[;rolist;rwlist;guest;valid-users;time-machine]" Configure a share
-                  required arg: "<name>;</path>"
+      -p          Set file and directory permissions for shared folders
+      -s <name;/path>[;rolist;rwlist;guest;users;time-machine] Configure a share
+                  required arg: <name>;</path>
                   <name> is how it's called for clients
                   <path> path to share
-                  [rolist] default: 'none' or comma separated list of users
-                  [rwlist] default: 'none' or comma separated list of users
+                  [rolist] read only users default: 'none' or list of users
+                  [rwlist] read/write users default: 'none' or list of users
                   [guest] allowed default:'yes' or 'no'
-                  [valid-users] allowed default:'all' or comma separated list of allowed users
+                  [users] allowed default:'all' or list of allowed users
                   [time-machine] allowed default:'no' or 'yes'
-      -u "<username;password>[;uid;group]" Add a user
-                  required arg: "<username>;<passwd>"
+      -u <username;password>[;uid;group] Add a user
+                  required arg: <username>;<passwd>
                   <username> for user
                   <password> for user
                   [uid] user id
                   [group] primary group or group id
-      -g "<groupname>[;gid]" Add a group.
+      -g <groupname>[;gid] Add a group.
 
   The 'command' (if provided and valid) will be run instead of Netatalk.
+
 ```
 
 ## Hosting an AFP server with Netatalk
@@ -48,7 +49,7 @@ This will create a share for the /shares folder in the container. It will be acc
 To set local storage:
 
 ```bash
-  docker run -it -p 548:548 -v "[local-folder]:/shares" cilix/netatalk -s "Shared;/shares"
+  docker run -it -p 548:548 -v "<local-folder>:/shares" cilix/netatalk -s "Shared;/shares"
 ```
 
 ## Configuration and examples
