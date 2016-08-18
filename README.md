@@ -15,14 +15,14 @@ You can start with:
   Options (fields in '[]' are optional, '<>' are required):
       -h          This help
       -p          Set permissions for shares.
-      -s "<name;/path>[;rolist;rwlist;guest;users;time-machine]" Configure a share
+      -s "<name;/path>[;rolist;rwlist;guest;valid-users;time-machine]" Configure a share
                   required arg: "<name>;</path>"
                   <name> is how it's called for clients
                   <path> path to share
-                  [rolist] default:none
-                  [rwlist] default:none
+                  [rolist] default: 'none' or comma separated list of users
+                  [rwlist] default: 'none' or comma separated list of users
                   [guest] allowed default:'yes' or 'no'
-                  [users] allowed default:'all' or list of allowed users
+                  [valid-users] allowed default:'all' or comma separated list of allowed users
                   [time-machine] allowed default:'no' or 'yes'
       -u "<username;password>[;uid;group]" Add a user
                   required arg: "<username>;<passwd>"
@@ -55,7 +55,7 @@ To set local storage:
 
 To further setup the server, follow the help provided with the -h flag.
 
-For instance, to set up three shares with read/write access to the user 'user' and read access to the guest user 'nobody', run:
+For instance, to set up three shares with read/write access for the user 'user1' and 'user2' and read access to the guest user 'nobody', run:
 
 ```bash
   docker run -it -p 548:548 \
@@ -63,10 +63,11 @@ For instance, to set up three shares with read/write access to the user 'user' a
     -v "/home/user/music:/shares/music" \
     -v "/home/user/movies:/shares/movies" \
     cilix/netatalk \
-    -u "user;password" \
-    -s "Documents;/shares/documents;nobody;user;yes" \
-    -s "Music;/shares/music;nobody;user;yes" \
-    -s "Movies;/movies/documents;nobody;user;yes"
+    -u "user1;badpass1" \
+    -u "user2;badpass2" \
+    -s "Documents;/shares/documents;nobody;user1,user2;yes" \
+    -s "Music;/shares/music;nobody;user1,user2;yes" \
+    -s "Movies;/movies/documents;nobody;user1,user2;yes"
 ```
 
 If you wish to detach from the running container, use ^P ^Q or start detached using the docker run -d flag.
