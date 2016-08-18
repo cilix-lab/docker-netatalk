@@ -1,8 +1,8 @@
-# Netatalk
+# Netatalk Docker Image
 
-Netatalk 3.1.9 container.
+This docker image is designed to make it easy to run an AFP server with Netatalk 3.1.9.
 
-# How to use this image?
+# How to use this image
 
 There are no shares configured by default.
 
