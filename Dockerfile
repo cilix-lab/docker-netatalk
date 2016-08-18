@@ -37,6 +37,8 @@ RUN ./configure --prefix=/usr --sysconfdir=/etc --with-init-style=debian-systemd
 COPY afp.conf /etc
 COPY afpd.sh /usr/bin
 
+RUN chmod +x /usr/bin/afpd.sh
+
 EXPOSE 139 445 137/udp 548
 
 VOLUME /shares
