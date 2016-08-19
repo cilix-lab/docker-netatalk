@@ -81,9 +81,9 @@ If the -p flag is provided, when starting up the container, it will make sure th
 
 ```bash
   docker run -it -p 548:548 \
-    -v "/home/user/documents:/shares/documents" \
-    -v "/home/user/music:/shares/music" \
-    -v "/home/user/movies:/shares/movies" \
+    -v "/media/documents:/shares/documents" \
+    -v "/media/music:/shares/music" \
+    -v "/media/movies:/shares/movies" \
     cilix/netatalk \
     -p \
     -u "user;password" \
