@@ -1,5 +1,5 @@
 FROM debian:jessie
-ENV NETATALK_VERSION=3.1.9
+ENV NETATALK_VERSION=3.1.10
 
 ENV DEPS="build-essential libevent-dev libssl-dev libgcrypt11-dev libkrb5-dev libpam0g-dev libwrap0-dev libdb-dev libtdb-dev libmysqlclient-dev libavahi-client-dev libacl1-dev libldap2-dev libcrack2-dev systemtap-sdt-dev libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev libtracker-sparql-1.0-dev libtracker-miner-1.0-dev file"
 
@@ -9,7 +9,7 @@ RUN export DEBIAN_FRONTEND=noninteractive &&\
     wget "http://ufpr.dl.sourceforge.net/project/netatalk/netatalk/$NETATALK_VERSION/netatalk-$NETATALK_VERSION.tar.gz" &&\
     curl -SL "http://ufpr.dl.sourceforge.net/project/netatalk/netatalk/$NETATALK_VERSION/netatalk-$NETATALK_VERSION.tar.gz" | tar xvz
 
-WORKDIR netatalk-3.1.9
+WORKDIR netatalk-3.1.10
 
 RUN ./configure --prefix=/usr --sysconfdir=/etc --with-init-style=debian-systemd \
   --without-libevent --without-tdb --with-cracklib --enable-krbV-uam \
