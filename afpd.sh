@@ -20,7 +20,7 @@ share() { local share="$1" path="$2" rolist=${3:-""} rwlist=${4:-""}\
 		[ "$rwlist" != "" ] && echo "   rwlist = $(tr ',' ' ' <<< $rwlist)" >> $file
     [ "$guest" == "no" ] && echo "   uam list = uams_dhx.so,uams_dhx2.so" >> $file
     [[ ${users:-""} ]] && echo "   valid users = $(tr ',' ' ' <<< $users)" >> $file
-    [ "$tmach" == "yes" ] && echo "   time machine = $tmach"
+    [ "$tmach" == "yes" ] && echo "   time machine = $tmach" >> $file
     echo -e "" >> $file
 
     # Set permissions if p flag used
