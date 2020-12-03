@@ -1,3 +1,5 @@
+# This repository is no longer mantained.
+
 # Netatalk Docker Image
 
 This docker image is designed to make it easy to run an AFP server with Netatalk 3.1.10.
